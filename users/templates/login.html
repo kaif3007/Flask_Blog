@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{%block content%}
+	<div class="content-section">
+        <form method="POST" action="">
+        	{{ form.hidden_tag()}}
+        	<fieldset class="form-group">
+        		<legend class="border-bottom mb-4">Log In</legend>
+        		
+        		{{render_field(form.email)}}
+        	  {{render_field(form.password)}}
+        		
+        		
+        		<div class="form-check">
+        			{{form.remember(class="form-check-input")}}
+        			{{form.remember.label(class="form-check-label")}}
+        		</div>
+        	</fieldset>
+        	<div class="form-group">
+                   {{form.submit(class="btn btn-outline-info")}}
+           	</div>
+           	<small class="text-muted ml-2">
+           	 <a href="{{url_for('users.reset_request')}}">Forgot Password?</a>	
+           	</small>
+        </form>
+	</div>
+	<div class="border-top pt-3">
+          <small class="text-muted">
+          	Need an Account? <a class='ml-2' href="{{url_for('users.register')}}" >Sign Up Now</a>
+          </small>
+	</div>
+{% endblock content %}
